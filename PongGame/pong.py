@@ -87,18 +87,18 @@ if IA == True:
         vitesse = int(vitesse)
         j1 = int(j1)
         j2 = int(j2)
-        if j2 == 5:
-            bg2 = image.load("bg2.png")
-            fenetre.blit(bg2, (0,0))
-            display.flip()
-            time.wait(5000)
-            continuer = 2
         if j1 == 5:
             bg1 = image.load("bg1.png")
             fenetre.blit(bg1, (0,0))
             display.flip()
             time.wait(5000)
-            continuer = 2
+            break
+        if j2 == 5:
+            bg2 = image.load("bg2.png")
+            fenetre.blit(bg2, (0,0))
+            display.flip()
+            time.wait(5000)
+            break
         if ((j1 != 0 and j1 < 5) or (j2 != 0 and j2 < 5)) and z > 0:
             del balle
             time.wait(1000)
@@ -240,18 +240,18 @@ else:
         vitesse = int(vitesse)
         j1 = int(j1)
         j2 = int(j2)
-        if j2 == 5:
-            bg2 = image.load("bg2.png")
-            fenetre.blit(bg2, (0,0))
-            display.flip()
-            time.wait(5000)
-            continuer = 2
         if j1 == 5:
             bg1 = image.load("bg1.png")
             fenetre.blit(bg1, (0,0))
             display.flip()
             time.wait(5000)
-            continuer = 2
+            break
+        if j2 == 5:
+            bg2 = image.load("bg2.png")
+            fenetre.blit(bg2, (0,0))
+            display.flip()
+            time.wait(5000)
+            break
         if ((j1 !=0 and j1 <5) or (j2 !=0 and j2<5)) and z>0:
             del balle
             time.wait(1000)
@@ -367,6 +367,8 @@ else:
         text = font.render(chaine, True, (255, 255, 255))  # pour créer l'objet texte qui est une surface pygame
         fenetre.blit(text, (30, 30))
         display.flip()
+
+
         if xp < (0-balle.get_size()[0]):
             j2 = int(j2)
             j2 += 1
@@ -374,6 +376,7 @@ else:
             yp = 344
             z = 1
             continue
+
         if xp >= 1148:
             j1 =  int(j1)
             j1 += 1
@@ -381,4 +384,5 @@ else:
             yp = 344
             z = 1
             continue
+
 quit()
