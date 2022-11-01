@@ -87,6 +87,18 @@ if IA == True:
         vitesse = int(vitesse)
         j1 = int(j1)
         j2 = int(j2)
+        if j2 == 5:
+            bg2 = image.load("bg2.png")
+            fenetre.blit(bg2, (0,0))
+            display.flip()
+            time.wait(5000)
+            continuer = 2
+        if j1 == 5:
+            bg1 = image.load("bg1.png")
+            fenetre.blit(bg1, (0,0))
+            display.flip()
+            time.wait(5000)
+            continuer = 2
         if ((j1 != 0 and j1 < 5) or (j2 != 0 and j2 < 5)) and z > 0:
             del balle
             time.wait(1000)
@@ -214,12 +226,6 @@ if IA == True:
             yp = 344
             z = 1
             continue
-        if j1 == 5:
-            bg1 = image.load("bg1.png")
-            fenetre.blit(bg1, (0, 0))
-            display.flip()
-            time.wait(5000)
-            continuer = 2
         if xp >= 1148:
             j1 = int(j1)
             j1 += 1
@@ -227,12 +233,6 @@ if IA == True:
             yp = 344
             z = 1
             continue
-        if j2 == 5:
-            bg2 = image.load("bg2.png")
-            fenetre.blit(bg2, (0, 0))
-            display.flip()
-            time.wait(5000)
-            continuer = 2
 else:
     while continuer == 1:
         time.Clock().tick(500)
@@ -240,6 +240,18 @@ else:
         vitesse = int(vitesse)
         j1 = int(j1)
         j2 = int(j2)
+        if j2 == 5:
+            bg2 = image.load("bg2.png")
+            fenetre.blit(bg2, (0,0))
+            display.flip()
+            time.wait(5000)
+            continuer = 2
+        if j1 == 5:
+            bg1 = image.load("bg1.png")
+            fenetre.blit(bg1, (0,0))
+            display.flip()
+            time.wait(5000)
+            continuer = 2
         if ((j1 !=0 and j1 <5) or (j2 !=0 and j2<5)) and z>0:
             del balle
             time.wait(1000)
@@ -362,12 +374,6 @@ else:
             yp = 344
             z = 1
             continue
-        if j1 == 5:
-            bg1 = image.load("bg1.png")
-            fenetre.blit(bg1, (0,0))
-            display.flip()
-            time.wait(5000)
-            continuer = 2
         if xp >= 1148:
             j1 =  int(j1)
             j1 += 1
@@ -375,10 +381,4 @@ else:
             yp = 344
             z = 1
             continue
-        if j2 == 5:
-            bg2 = image.load("bg2.png")
-            fenetre.blit(bg2, (0,0))
-            display.flip()
-            time.wait(5000)
-            continuer = 2
 quit()
