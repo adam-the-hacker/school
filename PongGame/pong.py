@@ -12,6 +12,7 @@ import random
 # [DONE] jouer a la souris
 # [DONE] meilleurs angles
 # angles selon la position de la balle sur la barre
+# [DONE] choisir combien de points max avant la fin de la partie
 
 init()
 fenetre = display.set_mode((1148, 688), RESIZABLE)
@@ -28,7 +29,9 @@ fond3 = image.load("pong3.png").convert()
 fond2 = image.load("pong2.png").convert()
 fond1 = image.load("pong1.png").convert()
 
-fondia = image.load("start.png").convert()
+start1 = image.load("start1.png").convert()
+optionmenu = image.load("options.png").convert()
+optionmenu2 = image.load("optionmenu.png").convert()
 
 xp = 574
 yp = 344
@@ -43,26 +46,77 @@ ry2 = 200
 speed = 0
 j1 = 0
 j2 = 0
-
-
+victory = 5
 z = 0
 vitesse = 2
 IA = False
-
+menu = False
 while continuer == 2:
     for evenements in event.get():
         if evenements.type == QUIT:
-            continuer = 1
-    time.Clock().tick(500)
+            continuer = 0
     keyb1 = key.get_pressed()
-    if keyb1[K_y]:
-        IA = True
-        continuer = 1
-    if keyb1[K_n]:
+    if keyb1[K_RETURN]:
         IA = False
         continuer = 1
-    fenetre.blit(fondia, (0, 0))
+    if keyb1[K_o]:
+        menu = True
+        continuer = 0
+    fenetre.blit(start1, (0, 0))
     display.flip()
+
+while menu:
+    for evenements in event.get():
+        if evenements.type == QUIT:
+            continuer = 0
+    keyb2 = key.get_pressed()
+    if keyb2[K_y]:
+        IA = True
+        print(IA)
+    if keyb2[K_a]:
+        changemenu = True
+        print("a")
+        while changemenu:
+            for evenements in event.get():
+                if evenements.type == QUIT:
+                    continuer = 0
+            keyb2 = key.get_pressed()
+            fenetre.blit(optionmenu2, (0,0))
+            display.flip()
+            if keyb2[K_1]:
+                victory = 1
+                changemenu = False
+            if keyb2[K_2]:
+                victory = 2
+                changemenu = False
+            if keyb2[K_3]:
+                victory = 3
+                changemenu = False
+            if keyb2[K_4]:
+                victory = 4
+                changemenu = False
+            if keyb2[K_5]:
+                victory = 5
+                changemenu = False
+            if keyb2[K_6]:
+                victory = 6
+                changemenu = False
+            if keyb2[K_7]:
+                victory = 7
+                changemenu = False
+            if keyb2[K_8]:
+                victory = 8
+                changemenu = False
+            if keyb2[K_9]:
+                victory = 9
+                changemenu = False
+    if keyb2[K_RETURN]:
+        menu = False
+        continuer = 1
+    fenetre.blit(optionmenu, (0,0))
+    display.flip()
+
+
 
 fenetre.blit(fond3, (0,0))
 display.flip()
@@ -87,19 +141,19 @@ if IA == True:
         vitesse = int(vitesse)
         j1 = int(j1)
         j2 = int(j2)
-        if j1 == 5:
+        if j1 == victory:
             bg1 = image.load("bg1.png")
             fenetre.blit(bg1, (0,0))
             display.flip()
             time.wait(5000)
             break
-        if j2 == 5:
+        if j2 == victory:
             bg2 = image.load("bg2.png")
             fenetre.blit(bg2, (0,0))
             display.flip()
             time.wait(5000)
             break
-        if ((j1 != 0 and j1 < 5) or (j2 != 0 and j2 < 5)) and z > 0:
+        if ((j1 != 0 and j1 < victory) or (j2 != 0 and j2 < victory)) and z > 0:
             del balle
             time.wait(1000)
 
@@ -240,19 +294,19 @@ else:
         vitesse = int(vitesse)
         j1 = int(j1)
         j2 = int(j2)
-        if j1 == 5:
+        if j1 == victory:
             bg1 = image.load("bg1.png")
             fenetre.blit(bg1, (0,0))
             display.flip()
             time.wait(5000)
             break
-        if j2 == 5:
+        if j2 == victory:
             bg2 = image.load("bg2.png")
             fenetre.blit(bg2, (0,0))
             display.flip()
             time.wait(5000)
             break
-        if ((j1 !=0 and j1 <5) or (j2 !=0 and j2<5)) and z>0:
+        if ((j1 !=0 and j1 <victory) or (j2 !=0 and j2<victory)) and z>0:
             del balle
             time.wait(1000)
 
