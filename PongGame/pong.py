@@ -100,7 +100,7 @@ while continuer == 2:
                         changemenu = False
             if keyb2[K_RETURN]:
                 menu = False
-                time.wait(100)
+                time.wait(200)
             if changedifficulty == True:
                 if keyb2[K_e]:
                     difficultymenu = True
@@ -159,7 +159,7 @@ while continuer == 2:
                 gamemodemenu = False
             if keyb2[K_RETURN]:
                 gamemodemenu = False
-                time.wait(100)
+                time.wait(200)
 
     fenetre.blit(start1, (0, 0))
     display.flip()
